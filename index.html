@@ -203,15 +203,61 @@
   /* ---------- Print ---------- */
   @media print{
     @page{size:A4;margin:0;}
-    body{background:#fff;padding:0;}
+    html,body{background:#fff;padding:0;}
     .toolbar{display:none;}
-    .sheet{box-shadow:none;}
+    .sheet{box-shadow:none;padding:15mm 18mm 14mm;min-height:0;}
     .price-card.lead,.compare{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+
+    /* PÁGINA 1 — header + titular + qué incluye + alcance */
+    header{padding:14px 0 16px;}
+    .hero{padding:22px 0 18px;}
+    .hero .kicker{margin-bottom:12px;}
+    .hero h1{font-size:42px;}
+    .hero .lede{margin-top:14px;font-size:14px;line-height:1.55;}
+    .section{margin-top:18px;}
+    .section-head{padding-bottom:7px;margin-bottom:13px;}
+    .includes{gap:10px;}
+    .includes li{font-size:13px;line-height:1.45;}
+    .scope{padding:14px 16px;font-size:12.5px;}
+
+    /* PÁGINA 2 — arranca en Inversión, con aire */
+    .section.page2{break-before:page;}
+    .price-card{padding:20px 22px;}
+    .price-card .amount{font-size:54px;}
+    .compare{padding:13px 18px;font-size:12.5px;}
+    .terms .row{padding:13px 16px;}
+    footer{margin-top:26px;padding-top:15px;}
+
+    .section,.hero,header,footer,.price-grid,.terms,.scope,.compare{break-inside:avoid;}
+    .includes li{break-inside:avoid;}
   }
-  @media (max-width:560px){
-    .price-grid,.terms{grid-template-columns:1fr;}
+  @media (max-width:640px){
+    body{padding:14px 8px;gap:14px;}
+    .toolbar{width:100%;}
+    .sheet{padding:26px 20px 24px;}
+
+    .topbar{flex-direction:column;align-items:flex-start;gap:5px;font-size:9.5px;letter-spacing:.08em;}
+
+    header{grid-template-columns:1fr;gap:16px;padding:16px 0 18px;}
+    .meta{text-align:left;}
+
+    .hero{padding:24px 0 18px;}
+    .hero h1{font-size:30px;letter-spacing:-.03em;}
+    .hero .lede{font-size:14px;}
+
+    .includes li{grid-template-columns:18px 1fr;gap:10px;font-size:13.5px;}
+
+    .price-grid{grid-template-columns:1fr;}
     .price-card.lead{border-right:none;border-bottom:2px solid var(--line);}
-    .hero h1{font-size:38px;}
+    .price-card .amount{font-size:46px;}
+
+    .compare{flex-direction:column;align-items:flex-start;gap:8px;}
+
+    .terms{grid-template-columns:1fr;}
+    .terms .row:nth-child(odd){border-right:none;}
+
+    footer{flex-direction:column;align-items:flex-start;gap:16px;}
+    footer .thanks{text-align:left;}
   }
 </style>
 </head>
@@ -277,7 +323,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section page2">
       <div class="section-head"><span class="num">03</span><h2>Inversión</h2></div>
       <div class="price-grid">
         <div class="price-card lead">
