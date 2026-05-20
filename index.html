@@ -203,9 +203,9 @@
   /* ---------- Print ---------- */
   @media print{
     @page{size:A4;margin:0;}
-    html,body{background:#fff;padding:0;}
+    html,body{background:var(--bone);padding:0;}
     .toolbar{display:none;}
-    .sheet{box-shadow:none;padding:15mm 18mm 14mm;min-height:0;}
+    .sheet{box-shadow:none;padding:15mm 18mm 14mm;min-height:100vh;}
     .price-card.lead,.compare{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
 
     /* PÁGINA 1 — header + titular + qué incluye + alcance */
